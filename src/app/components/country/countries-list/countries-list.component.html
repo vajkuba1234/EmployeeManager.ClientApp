@@ -1,0 +1,27 @@
+<h1>Seznam zemi</h1>
+
+<table class="table table-hover">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nazev</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of countries; track $index) {
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<hr>
+
+<form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+  <label for="name">Country name</label>
+  <input id="name" type="text" formControlName="name">
+
+  <button title="Odeslat">Odeslat</button>
+</form>

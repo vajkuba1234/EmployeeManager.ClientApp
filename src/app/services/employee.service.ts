@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, tap } from 'rxjs';
-import { Employee, EmployeeList } from '../types/employee';
+import { Employee } from '../types/employee';
 import { ApiServiceBaseService } from './api-service-base.service';
+import { EmployeeList } from '../types/employee-list';
 
 const httpOptions = {
   headers: new HttpHeaders({

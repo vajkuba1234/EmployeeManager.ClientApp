@@ -27,16 +27,14 @@ export class CountriesListComponent {
   }
 
   getCountries(): void {
-    (this.countryService.getCountries()).subscribe(
-      (countryList) => (this.countries = countryList.items)
-    );
+    this.countryService
+      .getCountries()
+      .subscribe((countryList) => (this.countries = countryList.items));
   }
 
   onSubmit(): void {
-    (
-      this.countryService.createCountry(
-        new CountryItem(this.countryForm.value.name!)
-      )
-    ).subscribe();
+    this.countryService
+      .createCountry(new CountryItem(this.countryForm.value.name!))
+      .subscribe();
   }
 }

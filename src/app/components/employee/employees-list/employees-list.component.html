@@ -1,18 +1,30 @@
-<h1>Seznam zamestnancu</h1>
+<h1>Employees</h1>
+
+<div class="row">
+  <div class="col mb-3 mt-3">
+    <a class="btn btn-success float-end" aria-current="page" href="/new-employee">New employee</a>
+  </div>
+</div>
 
 <table class="table table-hover">
   <thead class="table-light">
     <tr>
-      <th scope="col">Jmeno</th>
-      <th scope="col">Prijmeni</th>
-      <th scope="col">Zacatek</th>
-      <th scope="col">Akce</th>
+      <th scope="col">First name</th>
+      <th scope="col">Middle name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Joined</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <td>KKK</td>
-    <td>ASD</td>
-    <td>24.12.2023</td>
-    <td>Detail, Upravit, Smazat</td>
+    @for (item of employees; track $index) {
+      <tr>
+        <td>{{item.firstName}}</td>
+        <td>{{item.middleName}}</td>
+        <td>{{item.lastName}}</td>
+        <td>24.12.2023</td>
+        <td>Detail, Edit, Delete</td>
+      </tr>
+    }
   </tbody>
 </table>

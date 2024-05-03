@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../../../services/employee.service';
-import { Observable } from 'rxjs';
-import { Employee } from '../../../types/employee';
+import { EmployeeListItem } from '../../../types/employee-list-item';
 
 @Component({
   selector: 'app-employees-list',
@@ -11,9 +10,13 @@ import { Employee } from '../../../types/employee';
   styleUrl: './employees-list.component.scss',
 })
 export class EmployeesListComponent {
-  employees: Employee[] = [];
+  employees: EmployeeListItem[] = [];
 
   constructor(private employeeService: EmployeeService) {}
+
+  ngOnInit(): void {
+    this.getEmployees();
+  }
 
   getEmployees(): void {
     this.employeeService.getEmployees().subscribe(
